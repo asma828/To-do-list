@@ -17,3 +17,52 @@ body {
     outline: none;
     padding: 5px;
 }
+
+.task-list {
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+.task {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.p1 { border-left: 3px solid red; }
+.p2 { border-left: 3px solid orange; }
+.p3 { border-left: 3px solid green; }
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 500px;
+    background-color: #17a2b8;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    z-index: 1050;
+    overflow: auto; /* Ensure overflow handling */
+    max-height: 90vh; /* Adjust height to prevent overflow */
+}
+
+.modal-content {
+    position: relative;
+    padding: 10px;
+    background-color: #dee2e6;
+}
+
+.modal-header, .modal-body {
+    padding: 10px;
+}
+
+.close {
+    font-size: 30px;
+    cursor: pointer;
+}
+
