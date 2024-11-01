@@ -1,16 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Task Board</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="bootstrap.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-white">
-    <div class="container d-flex justify-content-between align-items-center ">
-        <button class="btn btn-primary">Add Task +</button>
-        <div class="search-bar">
-            <input type="text" placeholder="Search ...">
-            <span class="search-icon"></span>
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <button id="openAjoute" class="btn btn-primary">Add Task +</button>
+            <div class="search-bar">
+                <input type="text" class="form-control" placeholder="Search ...">
+            </div>
+            <button class="btn btn-primary">Add multiple +</button>
         </div>
-        <button class="btn btn-primary">Add multiple +</button>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>To do</h2>
+                <div class="task-list" id="todo-list"></div>
+            </div>
+            <div class="col-md-4">
+                <h2>In progress</h2>
+                <div class="task-list" id="doing-list"></div>
+            </div>
+            <div class="col-md-4">
+                <h2>Done</h2>
+                <div class="task-list" id="done-list"></div>
+            </div>
+        </div>
     </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Task</h2>
+                <span id="closeIcon" class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" name="description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="datestart">Start Date:</label>
+                        <input type="date" class="form-control" name="datestart" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateend">End Date:</label>
+                        <input type="date" class="form-control" name="dateend" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="statut">Status:</label>
+                        <select class="form-control" name="statut" required>
+                            <option value="todo">To Do</option>
+                            <option value="doing">Doing</option>
+                            <option value="done">Done</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority:</label>
+                        <select class="form-control" name="priority" required>
+                            <option value="p1">P1</option>
+                            <option value="p2">P2</option>
+                            <option value="p3">P3</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="addTask()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="test.js"></script>
+</body>
+</html>
