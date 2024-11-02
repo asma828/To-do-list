@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-white">
     <div class="container my-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <button id="openAjoute" class="btn btn-primary">Add Task +</button>
+            <button id="openAjoute" class="btn btn-primary" onclick="openTaskForm()" >Add Task +</button>
             <div class="search-bar">
                 <input type="text" class="form-control" placeholder="Search ...">
             </div>
@@ -18,15 +18,15 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <h2>To do</h2>
+                <h2>To do :<span id="todo-count">0</span></h2>
                 <div class="task-list" id="todo-list"></div>
             </div>
             <div class="col-md-4">
-                <h2>In progress</h2>
+                <h2>In progress :<span id="doing-count">0</span></h2>
                 <div class="task-list" id="doing-list"></div>
             </div>
             <div class="col-md-4">
-                <h2>Done</h2>
+                <h2>Done :<span id="done-count">0</span></h2>
                 <div class="task-list" id="done-list"></div>
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Add Task</h2>
-                <span id="closeIcon" class="close">&times;</span>
+                <span onclick="closeTaskForm()" id="closeIcon" class="close">&times;</span>
             </div>
             <div class="modal-body">
                 <form id="taskForm">
@@ -50,15 +50,15 @@
                     </div>
                     <div class="form-group">
                         <label for="datestart">Start Date:</label>
-                        <input type="date" class="form-control" name="datestart" required>
+                        <input type="date" class="form-control" name="startDate" required>
                     </div>
                     <div class="form-group">
                         <label for="dateend">End Date:</label>
-                        <input type="date" class="form-control" name="dateend" required>
+                        <input type="date" class="form-control" name="endDate" required>
                     </div>
                     <div class="form-group">
                         <label for="statut">Status:</label>
-                        <select class="form-control" name="statut" required>
+                        <select class="form-control" name="status" required>
                             <option value="todo">To Do</option>
                             <option value="doing">Doing</option>
                             <option value="done">Done</option>
@@ -72,15 +72,17 @@
                             <option value="p3">P3</option>
                         </select>
                     </div>
-                    <button type="button" class="btn btn-primary" onclick="addTask()">Submit</button>
+                    <button type="button" class="btn btn-primary" onclick="formObjectifFunction()" >Submit</button>
                 </form>
             </div>
         </div>
     </div>
 
+    
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="test.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
