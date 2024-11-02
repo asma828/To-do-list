@@ -22,6 +22,11 @@ const toDoList = document.getElementById("todo-list");
 const doingList = document.getElementById("doing-list");
 const doneList = document.getElementById("done-list");
 
+// Counters
+const todoCount = document.getElementById('todo-count');
+const doingCount = document.getElementById('doing-count');
+const doneCount = document.getElementById('done-count');
+
 // Open Task Form
 function openTaskForm() {
     taskForm.style.display = "block";
@@ -63,22 +68,25 @@ function addTask() {
     form.reset();
 }
 
-
-// Show Tasks
+// Show Tasks and Update Counters
 function showTasks() {
     toDoList.innerHTML = "";
     doingList.innerHTML = "";
     doneList.innerHTML = "";
+
+    let todoCounter = 0;
+    let doingCounter = 0;
+    let doneCounter = 0;
 
     for (let index = 0; index < tasks.length; index++) {
 
         let task = tasks[index];
         const taskHtml = `
 
-            <div class="task ${task.statuts}"> 
+             <div class="task ${task.priority}" data-title="${task.title}" data-description="${task.description}" data-datestart="${task.startDate}" data-dateend="${task.endDate}" data-statut="${task.statuts}" data-priority="${task.priority}">
                 <p><strong>${task.title}</strong></p>
                 <p>${task.description}</p>
-                <p>${task.startDate} to ${task.endDate}</p> 
+                <p>${task.startDate} to ${task.endDate}</p>
                 <div class="task-buttons">
                     <button class="btn btn-sm btn-outline-danger me-2" onclick="deleteTask(${index})">Delete</button>
                     <button class="btn btn-sm btn-outline-secondary" onclick="updateTask(${index})">Edit</button>
@@ -88,14 +96,23 @@ function showTasks() {
 
         if (task.statuts === "todo") {
             toDoList.innerHTML += taskHtml;
+            todoCounter++;
         } else if (task.statuts === "doing") {
             doingList.innerHTML += taskHtml;
+            doingCounter++;
         } else if (task.statuts === "done") {
             doneList.innerHTML += taskHtml;
+            doneCounter++;
         }
 
     }
+
+      // Update counters
+      todoCount.textContent = todoCounter;
+      doingCount.textContent = doingCounter;
+      doneCount.textContent = doneCounter;
 }
+
 
 // Delete Task
 function deleteTask(index) {
@@ -144,6 +161,7 @@ function actuallyUpdate() {
 
 }
 
+showTasks();
 
 
 
