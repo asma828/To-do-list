@@ -6,11 +6,22 @@
     <title>To Do List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .btn-primary{
+       background-color: brown;
+       outline-color: antiquewhite;
+        }
+        .btn:hover{
+        background-color: brown;
+        outline-color: antiquewhite;
+        }
+
+    </style>
 </head>
 <body class="bg-white">
     <div class="container my-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <button id="openAjoute" class="btn btn-primary" onclick="openTaskForm()" >Add Task +</button>
+            <button id="openAjoute" class="btn btn-primary " onclick="openTaskForm()" >Add Task +</button>
             <div class="search-bar">
                 <input type="text" class="form-control" placeholder="Search ...">
             </div>
