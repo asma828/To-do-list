@@ -116,9 +116,17 @@ function showTasks() {
 
 // Delete Task
 function deleteTask(index) {
-    tasks.splice(index, 1);
-    showTasks(); 
+    const task = document.querySelectorAll('.task')[index];
+    task.style.transition = "opacity 0.5s";
+    task.style.opacity = 0;
+
+    // Wait for the fade-out transition to complete
+    setTimeout(() => {
+        tasks.splice(index, 1);
+        showTasks();
+    }, 500); 
 }
+
 
 // Update Task
 function updateTask(index) {
